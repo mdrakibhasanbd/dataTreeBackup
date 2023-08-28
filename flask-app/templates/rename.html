@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editable Table</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Host</th>
+                    <th>Port</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mikrotik 1</td>
+                    <td>192.168.100.1</td>
+                    <td>1890</td>
+                    <td>
+                        <a href="#editModal" class="edit-btn" data-toggle="modal"><i class="material-icons"
+                                data-toggle="#editModal" title="Edit">&#xE254;</i></a>
+
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mikrotik 2</td>
+                    <td>192.168.100.2</td>
+                    <td>1890</td>
+                    <td>
+                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
+                                data-toggle="#editModal" title="Edit">&#xE254;</i></a>
+
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mikrotik 3</td>
+                    <td>192.168.100.3</td>
+                    <td>1890</td>
+                    <td>
+                        <a href="#editModal" class="edit" data-toggle="modal"><i class="material-icons"
+                                data-toggle="#editModal" title="Edit">&#xE254;</i></a>
+
+
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap Modal for Editing Data -->
+    <!-- <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+        aria-hidden="true"> -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="padding-left: 160px">
+                        Add OLT
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+                <form action="/addSplitterNode" id="addNodeform" method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Device Name</label>
+                                    <input type="text" class="form-control" name="name" id="value"
+                                        placeholder="Device Name" autocomplete="off" />
+                                    <div id="msg"></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Select Router</label>
+                                    <!-- <input type="text" class="form-control"placeholder="OFC Core Colour" required > -->
+                                    <select type="text" class="form-control" name="nodeColour">
+                                        <option>Mikrotik 1</option>
+                                        <option>Mikrotik 2</option>
+                                        <option>Mikrotik 3</option>
+                                        <option>Mikrotik 4</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Device type</label>
+                                    <!-- <input type="text" class="form-control"placeholder="OFC Core Colour" required > -->
+                                    <select type="text" class="form-control" name="nodeColour">
+                                        <option>Epon</option>
+                                        <option>Gpon</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Device Port</label>
+                                <div class="btn-group-justified m-auto" role="grid" aria-label="First group">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio2" value="2"
+                                            name="nodeCore" />
+                                        <label class="form-check-label" for="inlineRadio2">2</label>
+                                    </div>
+    
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio4" value="4"
+                                            name="nodeCore" />
+                                        <label class="form-check-label" for="inlineRadio4">4</label>
+                                    </div>
+    
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio8" value="8"
+                                            name="nodeCore" />
+                                        <label class="form-check-label" for="inlineRadio8">8</label>
+                                    </div>
+    
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="inlineRadio16" value="16"
+                                            name="nodeCore" />
+                                        <label class="form-check-label" for="inlineRadio16">16</label>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-success">Add Device</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Store the table cell values in variables when the edit button is clicked
+            $('.edit-btn').click(function () {
+                var name = $(this).closest('tr').find('td:eq(0)').text();
+                var host = $(this).closest('tr').find('td:eq(1)').text();
+                var port = $(this).closest('tr').find('td:eq(2)').text();
+
+                // Set the values in the form fields
+                $('#name').val(name);
+                $('#host').val(host);
+                $('#port').val(port);
+
+                // Close the modal
+                $('#editModal').modal('hide');
+            });
+        });
+    </script>
+</body>
+
+</html>

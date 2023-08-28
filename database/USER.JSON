@@ -1,0 +1,50 @@
+[{
+  "_id": 1,
+  "rootId": null,
+  "name": "Olt",
+  "addedName": "Olt",
+  "type": "green",
+  "level": "purple",
+  "icon": "static/image/olt.png"
+},{
+  "_id": 2,
+  "rootId": 1,
+  "name": "pon-1",
+  "addedName": "pon-1",
+  "type": "grey",
+  "level": "purple",
+  "icon": "static/image/pon.png",
+  "nodetype": "pon",
+  "searchable": null,
+  "value": null
+},{
+  "_id": 3,
+  "rootId": 1,
+  "name": "pon-2",
+  "addedName": "pon-2",
+  "type": "grey",
+  "level": "purple",
+  "icon": "static/image/pon.png",
+  "nodetype": "pon",
+  "searchable": null,
+  "value": null
+},{
+  "_id": 4,
+  "rootId": 1,
+  "name": "pon-3",
+  "addedName": "pon-3",
+  "type": "grey",
+  "level": "purple",
+  "icon": "static/image/pon.png",
+  "nodetype": "pon"
+},{
+  "_id": 5,
+  "rootId": 1,
+  "name": "pon-4",
+  "addedName": "pon-4",
+  "type": "grey",
+  "level": "purple",
+  "icon": "static/image/pon.png",
+  "nodetype": "pon"
+}
+]

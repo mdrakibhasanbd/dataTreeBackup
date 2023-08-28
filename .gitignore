@@ -1,0 +1,12 @@
+# Ignore virtual environment
+venv/
+
+# Ignore other temporary or generated files
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+*.idea
+*bin
+*lib
+

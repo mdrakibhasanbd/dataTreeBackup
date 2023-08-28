@@ -1,0 +1,117 @@
+[{
+  "_id": 1,
+  "rootId": null,
+  "name": "Olt",
+  "addedName":"Olt",
+  "type": "green",
+  "level": "purple",
+  "icon": "static/image/olt.png"
+},{
+  "_id": 3,
+  "rootId": 2,
+  "name": "USER-1",
+  "addedName":"USER-1",
+  "value": 8,
+  "searchable": "YES",
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "yellow",
+  "nodetype" : "user"
+},{
+  "_id": 4,
+  "rootId": 2,
+  "name": "USER-2",
+  "addedName":"USER-2",
+  "value": 8,
+  "searchable": "YES",
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 5,
+  "rootId": 2,
+  "name": "USER-3",
+  "addedName":"USER-3",
+  "searchable": "YES",
+  "value": 8,
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 6,
+  "rootId": 2,
+  "name": "USER-8",
+  "addedName":"USER-8",
+  "searchable": "YES",
+  "value": 8,
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 7,
+  "rootId": 1,
+  "name": "PLC-2",
+  "addedName":"PLC-2",
+  "type": "grey",
+  "level": "purple",
+  "icon": "static/image/splitter.png",
+  "nodetype":"splitter"
+},{
+  "_id": 8,
+  "rootId": 7,
+  "name": "USER-4",
+  "addedName":"USER-4",
+  "value": 8,
+  "searchable": "YES",
+  "type": "#fc4305",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 9,
+  "rootId": 7,
+  "name": "USER-5",
+  "addedName":"USER-5",
+  "value": 8,
+  "searchable": "YES",
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 10,
+  "rootId": 7,
+  "name": "USER-6",
+  "addedName":"USER-6",
+  "searchable": "YES",
+  "value": 8,
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 11,
+  "rootId": 7,
+  "name": "USER-7",
+  "addedName":"USER-7",
+  "searchable": "YES",
+  "value": 8,
+  "type": "#00fa60",
+  "icon": "static/image/router.png",
+  "level": "purple",
+  "nodetype" : "user"
+},{
+  "_id": 2,
+  "rootId": 1,
+  "name": "PLC-1",
+  "addedName":"PLC-1",
+  "type": "grey",
+  "level": "purple",
+  "icon": "static/image/splitter.png",
+  "nodetype":"splitter"
+}]
+
+

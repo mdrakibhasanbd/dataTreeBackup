@@ -1,0 +1,373 @@
+{% extends "base.html" %}
+
+
+{% block body %}
+
+<!-- Mikrotik -->
+
+<div class="container-fluid mt-3">
+  <div class="mb-3 ">
+    <nav class="navbar  bg-info justify-content-between  rounded bx-border-radius ">
+      <div class="text-white h1  mb-0 ">
+        Mikrotik
+      </div>
+      <button href="#addMikrotikModal" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" type="submit"><i
+          class="fa fa-plus" aria-hidden="true" data-toggle="#addMikrotikModal"></i>
+      </button>
+    </nav>
+  </div>
+
+  <!-- <div class="container"> -->
+  <table class="table table-hover table-striped table-bordered">
+    <thead class="bg-info text-white border rounded">
+      <tr>
+        <th>Name</th>
+        <th>Host</th>
+        <th>Port</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for router in routers %}
+
+      <tr>
+        <td>{{ router['name'] }}</td>
+        <td>{{ router['host'] }}</td>
+        <td>{{ router['port'] }}</td>
+        <td>
+          <a href="#editModal" class="edit-btn" data-toggle="modal"><i class="material-icons" data-toggle="#editModal"
+              title="Edit">&#xE254;</i></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <!-- </div> -->
+
+
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="host">Host</label>
+              <input type="text" class="form-control" id="host">
+            </div>
+            <div class="form-group">
+              <label for="port">Port</label>
+              <input type="text" class="form-control" id="port">
+            </div>
+            <div class="form-group">
+              <label for="password">Old Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+
+            <div class="form-group">
+              <label for="password">New Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary save-btn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="addMikrotikModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="editModalLabel">Add Mikrotik</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/addMikrotik" method="post">
+            <div class="mb-2">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="mb-2">
+              <label for="text">Username</label>
+              <input type="text" class="form-control" id="userName" name="userName">
+            </div>
+            <div class="mb-2">
+              <label for="host">Mikrotik IP</label>
+              <input type="text" class="form-control" id="host" name="host">
+            </div>
+            <div class="mb-2">
+              <label for="port">Port</label>
+              <input type="text" class="form-control" id="port" name="port">
+            </div>
+
+            <div class="mb-2">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OLT -->
+
+<div class="container-fluid mt-3">
+  <div class="mb-3">
+    <nav class="navbar  bg-info justify-content-between  rounded bx-border-radius ">
+      <div class="text-white h1  mb-0 ">
+        OLT
+      </div>
+      <button href="#addOltModal" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" type="submit"><i
+          class="fa fa-plus" aria-hidden="true" data-toggle="#addOltModal"></i>
+      </button>
+    </nav>
+  </div>
+
+  <!-- <div class="container"> -->
+  <table class="table table-hover table-striped table-bordered">
+    <thead class="bg-info text-white">
+      <tr>
+        <th>Name</th>
+        <th>Router Name</th>
+        <th>Device type</th>
+        <th>Device Port</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for olt in olts %}
+
+      <tr>
+        <td>{{ olt['name'] }}</td>
+        <td>{{ olt['routerName'] }}</td>
+        <td>{{ olt['deviceType'] }}</td>
+        <td>{{ olt['devicePort'] }}</td>
+        <td>
+          <a herf="" class="viewmaps"> <i class="fa fa-map" title="viewmap"></i></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+<div class="modal fade" id="addOltModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="editModalLabel">Add Mikrotik</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/addOlt" id="addNodeform" method="post">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label">Olt Name</label>
+                  <!-- <input class="form-control" name="nodeName" placeholder="Node Name" required type="text"> -->
+
+                  <input type="text" class="form-control" name="oltName" id="value" placeholder="Node Name"
+                    autocomplete="off" />
+                  <div id="msg"></div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label">Router Name</label>
+                  <select type="text" class="form-control" name="routerName">
+
+                    {% for routerName in routerNames %}
+                    <option>{{routerName['name']}}</option>
+
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label">Device Type</label>
+                  <!-- <input type="text" class="form-control"placeholder="OFC Core Colour" required > -->
+                  <select type="text" class="form-control" name="deviceType">
+                    <option>Epon</option>
+                    <option>Gpon</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-6 mb-3">
+                <label class="form-label">Device Port</label>
+                <div class="btn-group-justified m-auto" role="grid" aria-label="First group">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRadio4" value="4" name="devicePort" />
+                    <label class="form-check-label" for="inlineRadio4">4</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRadio8" value="8" name="devicePort" />
+                    <label class="form-check-label" for="inlineRadio8">8</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="inlineRadio16" value="16" name="devicePort" />
+                    <label class="form-check-label" for="inlineRadio16">16</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label">Latitude</label>
+                  <input class="form-control" placeholder="Latitude" required type="text" disabled />
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="mb-3">
+                  <label class="form-label">Longitude</label>
+                  <input class="form-control" placeholder="Longitude" required type="text" disabled />
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-success">Add Olt</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Store the table cell values in variables when the edit button is clicked
+    $('.edit-btn').click(function () {
+      var name = $(this).closest('tr').find('td:eq(0)').text();
+      var host = $(this).closest('tr').find('td:eq(1)').text();
+      var port = $(this).closest('tr').find('td:eq(2)').text();
+
+      // Set the values in the form fields
+      $('#name').val(name);
+      $('#host').val(host);
+      $('#port').val(port);
+
+      // Close the modal
+      $('#editModal').modal('hide');
+    });
+  });
+
+  /*
+    document.addEventListener('DOMContentLoaded', function () {
+      // Attach click event to viewmaps buttons
+      var viewmapButtons = document.getElementsByClassName('viewmaps');
+      for (var i = 0; i < viewmapButtons.length; i++) {
+        viewmapButtons[i].addEventListener('click', function () {
+          var row = this.closest('tr');
+          var oltName = row.querySelectorAll('td')[0].textContent;
+          var routerName = row.querySelectorAll('td')[1].textContent;
+  
+          // Construct the URL with parameters
+          var url = '/tree?oltName=' + encodeURIComponent(oltName) + '&routerName=' + encodeURIComponent(routerName);
+  
+          // Send the GET request
+          fetch(url)
+            .then(response => response.json())
+            .then(data => {
+  
+              var endTime = performance.now(); // Capture the end time
+              var duration = endTime - startTime; // Calculate the duration in milliseconds
+              console.log('Response time:', duration, 'ms');
+              // Handle the response data
+              console.log(data);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        });
+      }
+    });
+  
+  */
+  document.addEventListener('DOMContentLoaded', function () {
+    // Attach click event to viewmaps buttons
+    var viewmapButtons = document.getElementsByClassName('viewmaps');
+    for (var i = 0; i < viewmapButtons.length; i++) {
+      viewmapButtons[i].addEventListener('click', function () {
+        var startTime = performance.now(); // Capture the start time
+
+        var row = this.closest('tr');
+        var oltName = row.querySelectorAll('td')[0].textContent;
+        var routerName = row.querySelectorAll('td')[1].textContent;
+
+        // Construct the URL with parameters
+        var url = '/tree?oltName=' + encodeURIComponent(oltName) + '&routerName=' + encodeURIComponent(routerName);
+
+        // Send the GET request
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            var endTime = performance.now(); // Capture the end time
+            var duration = endTime - startTime; // Calculate the duration in milliseconds
+            console.log('Response time:', duration, 'ms');
+
+            // Handle the response data
+            console.log(data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      });
+    }
+  });
+
+
+</script>
+
+<!-- <script src="{{ url_for('static', filename='js/form.js') }}"></script> -->
+<!-- <script src="{{ url_for('static', filename='js/form2.js') }}"></script> -->
+<!-- <script src="{{ url_for('static', filename='js/script1.js') }}"></script> -->
+
+{% endblock %}
